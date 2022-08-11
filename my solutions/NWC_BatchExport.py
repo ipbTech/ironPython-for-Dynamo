@@ -8,16 +8,6 @@ clr.AddReference('RevitAPI')
 import Autodesk.Revit.DB
 from Autodesk.Revit.DB import NavisworksExportScope, View3D, FilteredElementCollector, Document, ModelPathUtils, OpenOptions, NavisworksExportOptions, NavisworksCoordinates, DetachFromCentralOption, WorksetConfiguration, WorksetConfigurationOption, WorksharingUtils, WorksetTable
 
-import System
-from System import TimeSpan
-
-class TimeCounter:
-	def __init__(self):
-		self.time = System.Diagnostics.Stopwatch.StartNew()
-		self.time.Start()
-	def stop(self):
-		self.time.Stop()
-		return self.time.Elapsed
 
 uiapp = DM.Instance.CurrentUIApplication
 app = uiapp.Application
@@ -64,8 +54,7 @@ def nwc_export_options(nwc_view):
 
 
 for model in model_list:
-	time = TimeCounter()
-	
+
 	model_path = ModelPathUtils.ConvertUserVisiblePathToModelPath(model)	
 	ws = worksets_info(model_path)
 	op_opt = open_options_file(ws)
