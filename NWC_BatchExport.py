@@ -53,7 +53,6 @@ def nwc_export_options(nwc_view):
 
 
 for model in model_list:
-	time = TimeCounter()
 	
 	model_path = ModelPathUtils.ConvertUserVisiblePathToModelPath(model)	
 	ws = worksets_info(model_path)
